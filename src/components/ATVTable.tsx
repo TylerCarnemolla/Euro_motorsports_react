@@ -3,6 +3,7 @@ import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import ATVModal from './ATVModal.tsx'
 import { server_calls } from '../api/server'
 import {useGetData} from '../custom_hooks/FetchATVData.tsx'
+import { Box } from '@mui/material';
 
 
 
@@ -10,11 +11,11 @@ import {useGetData} from '../custom_hooks/FetchATVData.tsx'
 
 
 const columns: GridColDef[] = [
-  { field: 'brand', headerName: 'Brand', width: 200 },
-  {field: 'model', headerName: 'Brand', width: 200},
-  { field: 'color', headerName: 'Color', width: 200, editable: true,},
-  {field: 'engine', headerName: 'Engine', width:200},
-  { field: 'price', headerName: 'Price', type: 'string', width: 200, editable: true,},
+  { field: 'brand', headerName: 'Brand', width: 150 },
+  {field: 'model', headerName: 'Brand', width: 150},
+  { field: 'color', headerName: 'Color', width: 150, editable: true,},
+  {field: 'engine', headerName: 'Engine', width:150},
+  { field: 'price', headerName: 'Price', type: 'string', width: 150, editable: true,},
   
 ];
 
@@ -82,9 +83,18 @@ export default function ATVGrid() {
       <div className={open ? "hidden" : "container mx-10 my-5 flex flex-col"} style={{ height: 400, width: '90%' }}>
           <h2 className="p-3 bg-red-800 text-white my-2 rounded">ATV's and Quads</h2>
               <div className=' rounded bg-gray-500'>
+            <Box sx={{ height: 400, width: '100%' }}>
             <DataGrid
               rows={ATVData}
               columns={columns}
+              initialState={{
+                pagination: {
+                  paginationModel: {
+                    pageSize: 5,
+                  },
+                },
+              }}
+              pageSizeOptions={[5]}
               
               checkboxSelection={true}
               onRowSelectionModelChange={(item: any) => {
@@ -94,6 +104,7 @@ export default function ATVGrid() {
               color:"text-white", 
             }}
             />
+            </Box>
           </div>
         </div>
 

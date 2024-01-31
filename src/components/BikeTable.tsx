@@ -3,6 +3,7 @@ import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import BikeModal from './BikeModal.tsx'
 import { server_calls } from '../api/server'
 import {useGetData} from '../custom_hooks/FetchBikeData.tsx'
+import { Box } from '@mui/material';
 
 
 
@@ -11,11 +12,11 @@ import {useGetData} from '../custom_hooks/FetchBikeData.tsx'
 
 const columns: GridColDef[] = [
   
-  { field: 'brand', headerName: 'Brand', width: 200 },
-  {field: 'model', headerName: 'Brand', width: 200},
-  { field: 'color', headerName: 'Color', width: 200,},
-  {field: 'engine', headerName: 'Engine', width:200},
-  { field: 'price', headerName: 'Price', type: 'string', width: 200},
+  { field: 'brand', headerName: 'Brand', width: 150 },
+  {field: 'model', headerName: 'Brand', width: 150},
+  { field: 'color', headerName: 'Color', width: 150,},
+  {field: 'engine', headerName: 'Engine', width:150},
+  { field: 'price', headerName: 'Price', type: 'string', width: 150},
   
 ];
 
@@ -79,10 +80,18 @@ export default function BikeGrid() {
       <div className={open ? "hidden" : "container mx-10 my-5 flex flex-col"} style={{ height: 400, width: '90%' }}>
           <h2 className="p-3 bg-red-800 text-white my-2 rounded">Motorcycles and Dirtbikes</h2>
               <div className=' rounded bg-gray-500'>
+            <Box sx={{ height: 400, width: '100%' }}>
             <DataGrid
               rows={BikeData}
               columns={columns}
-              
+              initialState={{
+                pagination: {
+                  paginationModel: {
+                    pageSize: 5,
+                  },
+                },
+              }}
+              pageSizeOptions={[5]}
               checkboxSelection={true}
               onRowSelectionModelChange={(item: any) => {
                 setSelectionModel(item);
@@ -91,6 +100,8 @@ export default function BikeGrid() {
               color:"text-white", 
             }}
             />
+            </Box>
+            
           </div>
         </div>
 

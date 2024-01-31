@@ -3,32 +3,32 @@ import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import HelmetModal from './HelmetModal.tsx'
 import { server_calls } from '../api/server'
 import {useGetData} from '../custom_hooks/FetchHelmetData.tsx'
-
+import { Box } from '@mui/material';
 
 
 
 
 
 const columns: GridColDef[] = [
-  { field: 'brand', headerName: 'Brand', width: 200 },
+  { field: 'brand', headerName: 'Brand', width: 150 },
   {
     field: 'color',
     headerName: 'Color',
-    width: 200,
+    width: 150,
     editable: true,
   },
   {
     field: 'price',
     headerName: 'Price',
     type: 'string',
-    width: 200,
+    width: 150,
     editable: true,
   },
   {
     field: 'size',
     headerName: 'Size',
     sortable: false,
-    width: 200,
+    width: 150,
   },
 ];
 
@@ -96,10 +96,18 @@ export default function HelmetGrid() {
         <div className={open ? "hidden" : "container mx-10 my-5 flex flex-col"} style={{ height: 400, width: '90%' }}>
           <h2 className="p-3 bg-red-800 text-white my-2 rounded">Helmets</h2>
               <div className=' rounded bg-gray-500'>
+              <Box sx={{ height: 400, width: '100%' }}>
                   <DataGrid
                     rows={HelmetData}
                     columns={columns}
-                    
+                    initialState={{
+                      pagination: {
+                        paginationModel: {
+                          pageSize: 5,
+                        },
+                      },
+                    }}
+                    pageSizeOptions={[5]}
                     checkboxSelection={true}
                     onRowSelectionModelChange={(item: any) => {
                       setSelectionModel(item);
@@ -108,6 +116,7 @@ export default function HelmetGrid() {
                     color:"text-white",
                   }}
                   />
+                  </Box>
             </div>
         </div>
 
