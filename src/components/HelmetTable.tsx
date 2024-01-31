@@ -1,5 +1,4 @@
-import {useEffect, useState} from 'react';
-import Box from '@mui/material/Box';
+import { useState} from 'react';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import HelmetModal from './HelmetModal.tsx'
 import { server_calls } from '../api/server'
@@ -11,26 +10,25 @@ import {useGetData} from '../custom_hooks/FetchHelmetData.tsx'
 
 
 const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width:150},
-  { field: 'brand', headerName: 'Brand', width: 150 },
+  { field: 'brand', headerName: 'Brand', width: 200 },
   {
     field: 'color',
     headerName: 'Color',
-    width: 150,
+    width: 200,
     editable: true,
   },
   {
     field: 'price',
     headerName: 'Price',
     type: 'string',
-    width: 150,
+    width: 200,
     editable: true,
   },
   {
     field: 'size',
     headerName: 'Size',
     sortable: false,
-    width: 150,
+    width: 200,
   },
 ];
 
@@ -58,6 +56,7 @@ export default function HelmetGrid() {
     server_calls.helmets.delete(selectionModel[0]);
     getData();
     console.log(`Selection model: ${selectionModel}`)
+    refreshData();
  
     
     }
@@ -66,10 +65,7 @@ export default function HelmetGrid() {
     getData();
   };
 
-  
 
-
-// datatable part
   
   
 
@@ -109,7 +105,7 @@ export default function HelmetGrid() {
                       setSelectionModel(item);
                     }}
                     style={{
-                    color:"text-white", // Set text color to white
+                    color:"text-white",
                   }}
                   />
             </div>

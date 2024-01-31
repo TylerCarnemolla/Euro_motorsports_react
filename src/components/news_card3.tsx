@@ -54,10 +54,7 @@ export default function NewsCard3() {
         subheader="September 14, 2016"
       />
       <CardMedia
-        component="img"
-        height="194"
-        image="../src/assets/images/kids-ride.jpg"
-        alt="Paella dish"
+       
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">

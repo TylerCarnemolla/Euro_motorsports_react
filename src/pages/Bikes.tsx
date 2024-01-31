@@ -1,30 +1,26 @@
-import React from 'react'
+
 import BikeGrid from '../components/BikeTable'
 import Background from '../assets/images/desert_bg.jpg'
-import Inv_ImageList from '../components/inv_list'
+
 const Bikes = () => {
   return (
     <div style={{backgroundImage: `url(${Background})`}}
     className='flex flex-row justify-center mx-auto bg-cover bg-fixed'>
 
-      <div className='flex flex-col items-center bg-white bg-opacity-50 w-9/12  shadow-2xl'>
-      <h3 className='font-semibold font-serif mb-44 mt-40 text-red-800 sm:text-5xl md:text-6xl lg:text-6xl xl:text-8xl'>MotorCycles</h3> 
-        <div>
+      <div className='flex flex-col  items-center bg-white bg-opacity-50 w-9/12  shadow-2xl'>
+        <h3 className='font-semibold font-serif mb-20 mt-40 text-red-800 sm:text-5xl md:text-6xl lg:text-6xl xl:text-8xl'>MotorCycles</h3> 
+       
       
         <BikeGrid/>
-         <div className='text-6xl text-center my-20'>
+          <div className='text-6xl text-center my-20'>
           
           Checkout our other departments for much more!
           </div>
 
-        <div className='flex justify-center'>
-        <Inv_ImageList/>
-        </div>
-
        
 
 
-        </div>
+       
 
         
         

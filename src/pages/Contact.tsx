@@ -15,13 +15,10 @@ const Contact = () => {
               <div className='flex flex-col mt-40 items-center' >
                   <h3 className='font-semibold font-serif mb-44 text-red-800 sm:text-5xl md:text-6xl lg:text-6xl xl:text-8xl'>Customer Support</h3> 
                   <div >
-                    <div className="flex justify-center ">
-                    <img src="../src/assets/images/contact_pic1.jpg" alt="" className="p-3 bg-red-800 rounded"/>
-                  
-                  </div>
+                    
                   
 
-                      <p className='text-black text-xl text-center m-20'>
+                      <p className='text-black text-3xl text-center m-20'>
                       At Euro Motorsports, we are dedicated to providing a seamless and enjoyable experience for our valued customers.
                        Our commitment extends to reliable shipping and handling guarantees. Expect timely and secure delivery of your orders,
                         ensuring that your prized motorcycle gear and accessories reach you in top condition.
@@ -52,9 +49,7 @@ const Contact = () => {
                     <p className="text-3xl text-white">1-(800)-555-5555</p>
                   </div>
                   
-                  <div  className="flex justify-center ">
-                    <img src="../src/assets/images/contact_pic2.jpg" alt="" className="p-3 bg-red-800 rounded" />
-                  </div>
+                 
 
                           <div className="flex justify-between border-4 p-3 my-20 border-yellow-500 bg-red-800">
                             <div className="flex flex-col text-center  text-white ">
@@ -83,7 +78,7 @@ const Contact = () => {
 
                             </div>
 
-                            <div  className="flex flex-col  text-center text-white text-white ">
+                            <div  className="flex flex-col  text-center text-white ">
                               <div>
                                 <p>5-STAR</p>
                                 <p>SERVICE</p>
@@ -98,7 +93,7 @@ const Contact = () => {
 
                             </div>
 
-                            <div  className="flex flex-col  text-center text-white text-white ">
+                            <div  className="flex flex-col  text-center text-white ">
                               <div>
                               <p>NO HASSLE</p>
                               <p>Returns</p>

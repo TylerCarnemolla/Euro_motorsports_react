@@ -29,6 +29,7 @@ const ATVForm: React.FC<ATVFormProps> = (props) => {
         if(props.id && props.id.length > 0) {
             server_calls.atvs.update(props.id[0], data)
             console.log(`Updated! ${data} ${props.id}`)
+            props.refreshData();
         
             event.target.reset()
         }else{

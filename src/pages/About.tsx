@@ -66,9 +66,10 @@ const About = () => {
 
 
                           <div className='flex flex-col items-center'>
-                            <div className='bg-red-800 p-3 rounded flex items-center my-20'>
-                              <img src="../src/assets/images/about_pic1.jpg" alt="" />
+                            <p className='font-semibold font-serif  text-red-800 text-5xl mt-20'>Meet the Owner</p>
 
+                            <div className='bg-red-800 p-3 rounded flex items-center mt-10 mb-20'>
+                              
                               <p className='text-white text-center text-xl p-5'>Euro Motorsports was founded by Richard Ryan in 2015. Richard was born and raised in Colorado Springs and 
                                 began racing amature motorcross at the age 17. After a career ending injury Richard set out to make an
                                 impression on his community by startign Euro Motorsports. His dream was to provide a place for gear-heads like him to 
@@ -81,6 +82,7 @@ const About = () => {
 
                               </p>
                             </div>
+                            <p className='font-semibold font-serif  text-red-800 text-5xl mt-20'>Get Social</p>
                             <div className='bg-red-800 p-3 rounded flex items-center my-20'>
                               
                               <p className='text-white text-center text-xl p-5'>
@@ -98,10 +100,11 @@ const About = () => {
                                      and community events awaiting you. Join the movement and explore the 
                                      world of motorcross with fellow enthusiasts!
                               </p>
-                              <img src="../src/assets/images/about_pic2.jpg" alt="" />
+                              
                             </div>
+                            <p className='font-semibold font-serif  text-red-800 text-5xl mt-20'>Share With Us</p>
                             <div  className='bg-red-800 p-3 rounded flex items-center my-20'>
-                              <img src="../src/assets/images/about_pic3.jpg" alt="" />
+                             
                               <p className='text-white text-center text-xl p-5'>
                                 We would love to hear from you! Share your adventures and stories with us on
                                  our social media! We would love to see where the bikes 

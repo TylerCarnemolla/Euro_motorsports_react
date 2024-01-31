@@ -11,8 +11,6 @@ interface Props {
  
 }
 
-// const Modal = (props: Props) => {
-//   if( !props.open ) return (<></>);
 const HelmetModal: React.FC<Props> = (props) => {
   if (!props.open) return <></>;
 
@@ -27,7 +25,7 @@ const HelmetModal: React.FC<Props> = (props) => {
       onClick={props.onClose}
       >
         <div
-          className=' flex  fixed z-1 mt-20 shadow-2xl rounded'
+          className=' flex  z-1 mt-20  rounded'
           onClick={(e)=>{
             e.stopPropagation()
           }}

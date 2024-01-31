@@ -1,25 +1,41 @@
-import {useState} from 'react'
-import { Link } from 'react-router-dom'
 
-import { signInWithPopup, signOut } from 'firebase/auth'
+import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth'
 import {auth, Providers} from "../config/firebase"
 
 
 function Navbar() {
-    
+    const [authenticated, setAuthenticated] = useState(false);  
 
-    const signOutOnClick = () =>{
-        signOut(auth)
-        location.reload();
-    }
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            setAuthenticated(!!user);
+        });
 
-    const signInOnClick =  async() =>{
-        const response = await signInWithPopup(auth, Providers.google)
-        if ( response.user){
-            location.reload();
+        return () => unsubscribe();
+    }, []);
+
+    const signOutOnClick = async () =>{
+        try{
+            await signOut(auth);
+            setAuthenticated(false);
+        } catch (error){
+            console.error('Error signing out:', error);
         }
-
+        
     }
+
+    const signInOnClick = async () => {
+        try {
+            const response = await signInWithPopup(auth, Providers.google);
+            if (response.user) {
+                setAuthenticated(true);  
+            }
+        } catch (error) {
+            console.error('Error signing in:', error);
+        }
+    };
 
     
 
@@ -145,125 +161,6 @@ function Navbar() {
         </nav>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // <nav className='flex items-center justify-between flex-wrap bg-teal-500 px-6'>
-    //     <div className='flex items-center flex-shrink-0 text-white mr-6'>
-    //         <Link to='/' className='font-semibold text-xl tracking-tight'>Digit</Link>
-    //     </div>
-    //     <div className='block'>
-    //         <button 
-    //                 onClick = {dropDown}
-    //                 className='flex items-center px-3 py-2text-yellow-400 border rounded
-    //                 border-teal-400 hover:text-white hover:border-white'>
-            
-    //                 <i className='fas fa-bars'></i>
-    //         </button>
-
-    //     </div>
-    //     {isVisable ? (
-    //         <div className='w-full block flex-grow items-center'>
-    //             <div className="text-sm lg:flex-grow">
-    //                 <button className="p-3 m-5bg-black border-yellow-400 justify-center">
-    //                     <div>
-                            // <Link to='/' onClick={} className='flex place-items-center mt-4 lg:inline-block lg:mt-0
-    //                            text-yellow-400 hover:text-white '>
-    //                             Home
-    //                         </Link>
-    //                     </div>
-
-    //                 </button>
-    //                 <button className="p-3 m-5bg-black border-yellow-400 justify-center">
-    //                     <div>
-                            // <Link to='/about' onClick={} className='flex place-items-center mt-4 lg:inline-block lg:mt-0
-    //                            text-yellow-400 hover:text-white '>
-    //                             About
-    //                         </Link>
-    //                     </div>
-
-    //                 </button>
-    //                 <button className="p-3 m-5bg-black border-yellow-400 justify-center">
-    //                     <div>
-                            // <Link to='/contact' onClick={} className='flex place-items-center mt-4 lg:inline-block lg:mt-0
-    //                            text-yellow-400 hover:text-white '>
-    //                             Contact Us
-    //                         </Link>
-    //                     </div>
-
-    //                 </button>
-    //                 <button className="p-3 m-5bg-black border-yellow-400 justify-center">
-    //                     <div>
-                            // <Link to='/dashboard' onClick={} className='flex place-items-center mt-4 lg:inline-block lg:mt-0
-    //                            text-yellow-400 hover:text-white '>
-    //                             Dashboard
-    //                         </Link>
-    //                     </div>
-
-    //                 </button>
-                    // {/* {
-                    //     !auth.currentUser?
-                    //     <button className='p-3 m-5bg-black border-yellow-400 justify-center'>
-                    //         <div>
-                    //             <Link to="/" onClick={() => {signInOnClick()}} className='flex place-items-center 
-                    //             mt-4 lg:inline-block lg:mt-0text-yellow-400 hover:text-white'>
-                    //                 Login
-
-                    //             </Link>
-                    //         </div>
-                    //     </button>
-                    //     :
-                    //     <button className='p-3 m-5bg-black border-yellow-400 justify-center'>
-                    //         <div>
-                    //             <Link to="/" onClick={() => {signOutOnClick()}} className='flex place-items-center 
-                    //             mt-4 lg:inline-block lg:mt-0text-yellow-400 hover:text-white'>
-                    //                 Sign Out
-
-                    //             </Link>
-                    //         </div>
-                    //     </button>
-                    // } */}
-
-
-    //             </div>
-    //         </div>
-    //     ) : (
-    //    <></>)}
-
-    // </nav>
   )
 }
 

@@ -1,58 +1,70 @@
 import Background from '../assets/images/desert_bg.jpg'
-import QuiltedImageList from '../components/Image_list'
+import BikeCard from '../components/BikeCard';
+import ATVCard from '../components/AtvCard';
+import GearCard from '../components/GearCard';
+import HelmetCard from '../components/card';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import XIcon from '@mui/icons-material/X';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import HelmetCard from '../components/card.tsx';
-import BikeCard from '../components/BikeCard.tsx';
-import ATVCard from '../components/AtvCard.tsx';
-import GearCard from '../components/GearCard.tsx';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+
 
 const Home = () => {
   return (
     <div style={{backgroundImage: `url(${Background})`}}
-      className='flex flex-row justify-center mx-auto bg-cover bg-fixed'>
+      className='flex flex-row  justify-center mx-auto bg-cover bg-fixed'>
         
         <div className='flex flex-col   bg-white bg-opacity-50 w-9/12  shadow-2xl'>
         
            
             <div className='flex flex-col  items-center'>
-              <div className='grid mb-24 grid-row-1 grid-cols-5 gap-20'>
-                <img src="../src/assets/images/Beta_logo.jpg" alt="beta logo"  />
-                <img src="../src/assets/images/Can_am_logo.png" alt="can am logo" />
-                <img src="../src/assets/images/Gasgas.png" alt="Gas Gas logo" />
-                <img src="../src/assets/images/husk_logo.jpeg" alt="husqvarna logo" />
-                <img src="../src/assets/images/KTM_logo.png" alt="" />
-              </div>
-              <h1 className=' font-semibold font-serif mb-44 text-red-800 sm:text-5xl md:text-6xl lg:text-6xl xl:text-8xl'>EURO MOTORS</h1>
+              
+              <h1 className=' font-semibold font-serif my-44 text-red-800 sm:text-5xl md:text-6xl lg:text-6xl xl:text-8xl'>EURO MOTORS</h1>
 
-              
-              
-              <div className='grid grid-cols-2 grid-rows-2 gap-4'>
+              <p className='font-semibold font-serif  text-red-800 text-2xl my-10'>Shop Our Remarkable Selections With The Security Of Our Price-Match Guarantee  </p>
+              <div className='grid grid-cols-2 grid-rows-2 gap-36'>
                 
-                  <Link to="./Helmets">
-                    <HelmetCard/>
+                <Link to="./Helmets" className='bg-red-800 p-5 rounded-xl'>
+                  <HelmetCard/>
 
+                </Link>
+               
+                
+                  <Link to="./Bikes" className='bg-red-800 p-5 rounded-xl'>
+                  <BikeCard/>
                   </Link>
-                 
-                  
-                    <Link to="./Bikes">
-                    <BikeCard/>
-                    </Link>
 
-                  
-                  <Link to="./Atvs">
-                    <ATVCard/>
-                    </Link>
+                
+                <Link to="./Atvs" className='bg-red-800 p-5 rounded-xl'>
+                  <ATVCard/>
+                  </Link>
 
-                  
-                  <Link to="./Gear">
-                    <GearCard/>
-                    </Link>
+                
+                <Link to="./Gear" className='bg-red-800 p-5 rounded-xl'>
+                  <GearCard/>
+                  </Link>
 
-                  
+                
+            </div>
+            
+
+
+              <div>
+                <p className='text-black text-3xl text-center m-20'>Discover the thrill of European engineering 
+                  and precision at Euro Motorsports, your premier 
+                  destination for high-performance motorcycles.
+                   Immerse yourself in the world of two-wheel adventure
+                    with top-notch brands such as KTM, Husqvarna, GasGas,
+                     Can-Am, and Beta. From cutting-edge bikes to quality 
+                     gear and helmets, we offer a comprehensive selection to 
+                     elevate your riding experience. Explore our showroom for
+                      ATV's and quads from the same esteemed manufacturers,
+                       ensuring excellence in every aspect of your off-road journey. 
+                       Embrace the ride of a lifetime with Euro Motorsports – where passion
+                        meets performance.</p>
               </div>
+
+              
               
               <div className='flex flex-col text-center  text-yellow-400 bg-red-800 p-5 rounded-3xl my-44'>
                 <p className='font-semibold font-serif'>Follow Along With Our Pros, Fans, and Sponsors on Social Media</p>
@@ -69,10 +81,7 @@ const Home = () => {
                       </div>
                   </div>
 
-                <div className=''>
-                  <QuiltedImageList/>
-                 
-                </div>
+                
               </div>
 
             </div>
@@ -81,28 +90,6 @@ const Home = () => {
           
         </div>
        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
     
 

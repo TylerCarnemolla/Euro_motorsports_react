@@ -1,13 +1,13 @@
 
 import ATVGrid from '../components/ATVTable'
 import Background from '../assets/images/desert_bg.jpg'
-import Inv_ImageList from '../components/inv_list'
 const ATVs = () => {
   return (
     <div style={{backgroundImage: `url(${Background})`}}
     className='flex flex-row justify-center mx-auto bg-cover bg-fixed'>
 
-      <div className='flex flex-col  bg-white bg-opacity-50 w-9/12  shadow-2xl'>
+      <div className='flex flex-col items-center bg-white bg-opacity-50 w-9/12  shadow-2xl'>
+      <h3 className='font-semibold font-serif mb-20 mt-40 text-red-800 sm:text-5xl md:text-6xl lg:text-6xl xl:text-8xl'>ATVs & Quads</h3> 
       
       
         <ATVGrid/>
@@ -16,9 +16,7 @@ const ATVs = () => {
           Checkout our other departments for much more!
           </div>
 
-        <div className='flex justify-center'>
-        <Inv_ImageList/>
-        </div>
+        
         <div>
           
         <div className='flex flex-col p-6 my-36 text-xl bg-black bg-opacity-50'>

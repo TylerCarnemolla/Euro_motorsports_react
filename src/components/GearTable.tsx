@@ -10,11 +10,11 @@ import {useGetData} from '../custom_hooks/FetchGearData.tsx'
 
 
 const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width:150},
-  { field: 'brand', headerName: 'Brand', width: 150 },
-  {field: 'type', headerName: 'Type', width: 150},
-  { field: 'color', headerName: 'Color', width: 150, editable: true,},
-  {field: 'Size', headerName: 'Size', width:150},
+   {field: 'type', headerName: 'Type', width: 200},
+  { field: 'brand', headerName: 'Brand', width: 200 },
+ 
+  { field: 'color', headerName: 'Color', width: 200, editable: true,},
+  {field: 'size', headerName: 'Size', width:150},
   { field: 'price', headerName: 'Price', type: 'string', width: 150, editable: true,},
   
 ];
@@ -43,6 +43,7 @@ export default function GearGrid() {
     server_calls.gear.delete(selectionModel[0]);
     getData();
     console.log(`Selection model: ${selectionModel}`)
+    refreshData();
  
     
     }
@@ -52,9 +53,6 @@ export default function GearGrid() {
   };
 
   
-
-
-// datatable part
   
   
 

@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import  {useState} from 'react';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import ATVModal from './ATVModal.tsx'
 import { server_calls } from '../api/server'
@@ -10,12 +10,11 @@ import {useGetData} from '../custom_hooks/FetchATVData.tsx'
 
 
 const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width:150},
-  { field: 'brand', headerName: 'Brand', width: 150 },
-  {field: 'model', headerName: 'Brand', width: 150},
-  { field: 'color', headerName: 'Color', width: 150, editable: true,},
-  {field: 'engine', headerName: 'Engine', width:150},
-  { field: 'price', headerName: 'Price', type: 'string', width: 150, editable: true,},
+  { field: 'brand', headerName: 'Brand', width: 200 },
+  {field: 'model', headerName: 'Brand', width: 200},
+  { field: 'color', headerName: 'Color', width: 200, editable: true,},
+  {field: 'engine', headerName: 'Engine', width:200},
+  { field: 'price', headerName: 'Price', type: 'string', width: 200, editable: true,},
   
 ];
 
@@ -43,6 +42,7 @@ export default function ATVGrid() {
     server_calls.atvs.delete(selectionModel[0]);
     getData();
     console.log(`Selection model: ${selectionModel}`)
+    refreshData();
  
     
     }
@@ -91,7 +91,7 @@ export default function ATVGrid() {
                 setSelectionModel(item);
               }}
               style={{
-              color:"text-white", // Set text color to white
+              color:"text-white", 
             }}
             />
           </div>

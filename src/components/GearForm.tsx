@@ -29,7 +29,7 @@ const GearForm: React.FC<GearFormProps> = (props) => {
         if(props.id && props.id.length > 0) {
             server_calls.gear.update(props.id[0], data)
             console.log(`Updated! ${data} ${props.id}`)
-        
+            props.refreshData();
             event.target.reset()
         }else{
             dispatch(ChooseGearBrand(data.brand));

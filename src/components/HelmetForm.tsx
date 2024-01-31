@@ -1,7 +1,7 @@
 import React from "react";
 import Input from "./input";
 import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { ChooseBrand, ChooseColor, ChoosePrice, ChooseSize } from "../redux/slices/HelmetSlice";
 import {server_calls} from "../api/server"
 
@@ -29,6 +29,7 @@ const HelmetForm: React.FC<HelmetFormProps> = (props) => {
         if(props.id && props.id.length > 0) {
             server_calls.helmets.update(props.id[0], data)
             console.log(`Updated! ${data} ${props.id}`)
+            props.refreshData();
         
             event.target.reset()
         }else{

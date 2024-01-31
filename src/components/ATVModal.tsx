@@ -11,23 +11,19 @@ interface Props {
  
 }
 
-// const Modal = (props: Props) => {
-//   if( !props.open ) return (<></>);
 const ATVModal: React.FC<Props> = (props) => {
   if (!props.open) return <></>;
 
  
-
-
   return (
     <div className="flex justify-center ">
 
     <div
-      className=" flex justify-center  bg-white"
+      className=" flex justify-center"
       onClick={props.onClose}
       >
         <div
-          className=' flex fixed bg-white z-1 mt-40 shadow-2xl rounded'
+          className=' flex  z-1 mt-15  rounded'
           onClick={(e)=>{
             e.stopPropagation()
           }}

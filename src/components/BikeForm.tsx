@@ -18,12 +18,6 @@ const BikeForm: React.FC<BikeFormProps> = (props) => {
     const { register, handleSubmit } = useForm();
     const dispatch = useDispatch();
 
-
-
-  
-
-
-
     const onSubmit = async (data:any, event:any) =>{
       console.log(`ID: ${props.id}`);
         if(props.id && props.id.length > 0) {
@@ -31,6 +25,7 @@ const BikeForm: React.FC<BikeFormProps> = (props) => {
             console.log(`Updated! ${data} ${props.id}`)
         
             event.target.reset()
+            props.refreshData();
         }else{
             dispatch(ChooseBikeBrand(data.brand));
             dispatch(ChooseBikeColor(data.color));
