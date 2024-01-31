@@ -31,6 +31,7 @@ function Navbar() {
             const response = await signInWithPopup(auth, Providers.google);
             if (response.user) {
                 setAuthenticated(true);  
+                console.log(authenticated)
             }
         } catch (error) {
             console.error('Error signing in:', error);
